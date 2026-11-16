@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>Königs Grill 2 Münster – Döner &amp; Pizza bestellen</title>
+<meta name="description" content="Königs Grill 2 in Münster: Döner, Pizza, Schnitzel und Falafel einfach online bestellen. Abholen oder liefern lassen.">
+<link rel="canonical" href="https://koenigsgrill2-muenster.de/">
+<meta property="og:url" content="https://koenigsgrill2-muenster.de/">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Königs Grill 2">
+<meta property="og:title" content="Königs Grill 2 Münster">
+<meta property="og:description" content="Döner, Pizza, Schnitzel und Falafel online bestellen.">
+<meta property="og:image" content="https://koenigsgrill2-muenster.de/img/icon-512.png">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root { --gelb: #F5C518; --gelb2: #ffdf5e; --glas: rgba(255,255,255,.065); --rand: rgba(255,255,255,.11); --grau: #b3b0a8; }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { background: #000; }
+body { font-family: "Avenir Next", Avenir, Montserrat, "Helvetica Neue", sans-serif; font-weight: 500; color: #fff; background: #060606;
+       max-width: 520px; margin: 0 auto; min-height: 100vh; position: relative; padding-bottom: 120px; overflow-x: hidden; }
+/* warmes Leuchten im Hintergrund */
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(60% 34% at 88% 4%, rgba(245,197,24,.20), transparent 70%), radial-gradient(70% 30% at 0% 46%, rgba(245,197,24,.09), transparent 70%), radial-gradient(60% 30% at 100% 92%, rgba(245,197,24,.10), transparent 70%), #060606; }
+.bebas { font-family: "Bebas Neue", "Arial Narrow", Impact, sans-serif; font-weight: 400; letter-spacing: 1px; }
+button { font: inherit; color: inherit; border: 0; background: none; cursor: pointer; }
+.versteckt { display: none !important; }
+.glas { background: var(--glas); border: 1px solid var(--rand); }
+nav.unten.glas { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+.gelb { color: var(--gelb); }
+
+/* Kopf */
+.kopf { display: flex; align-items: center; gap: 10px; padding: 18px 18px 0; }
+.kopf img { width: 38px; }
+.kopf .bebas { font-size: 24px; line-height: 1; flex: 1; white-space: nowrap; }
+.schalter { display: flex; padding: 4px; border-radius: 999px; }
+.schalter button { padding: 8px 11px; border-radius: 999px; font-size: 13px; font-weight: 700; color: var(--grau); }
+.schalter button.an { background: var(--gelb); color: #000; }
+.gruss { padding: 22px 18px 0; }
+.gruss small { color: var(--grau); font-size: 14px; font-weight: 600; }
+.gruss h1 { font-size: 52px; line-height: .92; margin-top: 6px; }
+
+.logo { text-align: center; padding: 30px 18px 0; }
+.logo button { display: block; margin: 0 auto; padding: 6px; border-radius: 20px; }
+.logo button:active { transform: scale(.94); }
+.logo img { width: 92px; display: block; margin: 0 auto; filter: drop-shadow(0 0 34px rgba(245,197,24,.35)); }
+.logo h1 { font-size: 50px; line-height: .95; margin-top: 12px; letter-spacing: 3px; }
+.logo span { display: block; color: var(--gelb); font-size: 12px; font-weight: 800; letter-spacing: 6px; margin-top: 6px; }
+.wahlzeile { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 18px 0; }
+.wahlzeile .schalter button { padding: 11px 26px; font-size: 14.5px; }
+.wahlzeile small { color: var(--grau); font-size: 13px; font-weight: 600; text-align: center; }
+
+/* Hero */
+.hero { position: relative; margin: 18px 18px 0; border-radius: 28px; padding: 22px 20px; min-height: 190px; overflow: hidden; display: block; width: calc(100% - 36px); text-align: left;
+        background: linear-gradient(120deg, rgba(245,197,24,.22), rgba(255,255,255,.04) 60%); border: 1px solid rgba(245,197,24,.28); }
+.hero .eti { display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 2px; color: var(--gelb); }
+.hero h2 { font-size: 40px; line-height: .92; margin-top: 8px; max-width: 54%; position: relative; z-index: 1; }
+.hero p { position: relative; z-index: 1; color: #e6e3da; font-size: 13px; font-weight: 600; margin-top: 8px; max-width: 50%; line-height: 1.35; }
+.hero .knopf { position: relative; z-index: 1; white-space: nowrap; display: inline-block; margin-top: 14px; background: var(--gelb); color: #000; font-weight: 800; font-size: 14px; padding: 11px 18px; border-radius: 999px; }
+.hero img { position: absolute; right: 8px; bottom: 4px; width: 47%; filter: drop-shadow(0 18px 26px rgba(0,0,0,.55)); }
+
+/* Kategorien */
+.kats { display: flex; gap: 10px; overflow-x: auto; padding: 20px 18px 6px; scrollbar-width: none; position: sticky; top: 0; z-index: 4; }
+.kats::-webkit-scrollbar { display: none; }
+.kats.fest { background: rgba(6,6,6,.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--rand); }
+.kats button { flex: 0 0 auto; width: 76px; padding: 8px 4px 9px; border-radius: 20px; font-size: 11.5px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.kats button img { width: 54px; height: 46px; object-fit: contain; filter: drop-shadow(0 6px 8px rgba(0,0,0,.5)); }
+.kats button.an { background: linear-gradient(160deg, rgba(245,197,24,.34), rgba(245,197,24,.10)); border-color: rgba(245,197,24,.6); color: var(--gelb2); }
+
+/* Überschriften */
+.zeile { display: flex; align-items: baseline; justify-content: space-between; padding: 26px 18px 0; }
+.zeile h2 { font-size: 34px; line-height: 1; }
+.zeile span { color: var(--grau); font-size: 13px; font-weight: 600; text-align: right; max-width: 55%; }
+
+/* Beliebt (waagerecht) */
+.reihe { display: flex; gap: 12px; overflow-x: auto; padding: 14px 18px 4px; scrollbar-width: none; }
+.reihe::-webkit-scrollbar { display: none; }
+.kachel { flex: 0 0 152px; border-radius: 24px; padding: 10px 12px 12px; text-align: left; position: relative; }
+.kachel img { display: block; width: 100%; height: 104px; object-fit: contain; filter: drop-shadow(0 12px 14px rgba(0,0,0,.6)); }
+.kachel .name { font-weight: 700; font-size: 14.5px; line-height: 1.2; margin-top: 8px; min-height: 35px; }
+.kachel .unten { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+.kachel .preis { font-weight: 800; font-size: 16px; }
+.plus { width: 36px; height: 36px; border-radius: 12px; background: var(--gelb); color: #000; font-size: 24px; font-weight: 700; line-height: 36px; text-align: center; flex: 0 0 auto; box-shadow: 0 6px 16px rgba(245,197,24,.35); }
+
+/* Spiel */
+.spkopf { display: flex; justify-content: space-between; margin: 16px 0 10px; font-size: 14px; font-weight: 700; color: var(--grau); }
+.spkopf b { color: var(--gelb); font-size: 18px; margin-left: 4px; }
+#spFeld { display: block; margin: 0 auto; border-radius: 22px; background: #0a0a0a; border: 1px solid rgba(245,197,24,.3); touch-action: none; }
+.pfeile { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 16px; }
+.pfeile div { display: flex; gap: 76px; }
+.pfeile button { width: 68px; height: 56px; border-radius: 18px; background: var(--glas); border: 1px solid var(--rand); font-size: 22px; }
+.pfeile button:active { background: var(--gelb); color: #000; }
+
+/* Kategorie-Banner */
+.banner { position: relative; margin: 26px 18px 0; border-radius: 26px; padding: 20px 20px 18px; min-height: 124px; overflow: hidden; background: linear-gradient(120deg, rgba(245,197,24,.16), rgba(255,255,255,.04) 62%); border: 1px solid rgba(245,197,24,.22); }
+.banner h2 { font-size: 44px; line-height: .92; max-width: 58%; }
+.banner p { color: #d9d6cd; font-size: 13px; font-weight: 600; margin-top: 8px; max-width: 56%; line-height: 1.35; }
+.banner img { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); width: 36%; max-height: 82%; object-fit: contain; filter: drop-shadow(0 14px 18px rgba(0,0,0,.6)); }
+.gericht.ohne { padding: 14px 14px 14px 16px; }
+.gericht.ohne .foto { flex: 0 0 30px; height: 30px; }
+.gericht.ohne .foto img.kr { width: 26px; opacity: .55; }
+.gericht.neu { border-color: rgba(245,197,24,.55); background: linear-gradient(120deg, rgba(245,197,24,.14), rgba(255,255,255,.04)); }
+img.satt { filter: saturate(1.5) contrast(1.06) drop-shadow(0 10px 12px rgba(0,0,0,.6)) !important; }
+
+/* Liste */
+section.kat { scroll-margin-top: 96px; }
+.gericht { display: flex; align-items: center; gap: 12px; border-radius: 24px; padding: 10px 14px 10px 10px; margin: 12px 18px 0; width: calc(100% - 36px); text-align: left; }
+.gericht:active, .kachel:active { border-color: rgba(245,197,24,.7); }
+.gericht .foto { flex: 0 0 92px; height: 84px; display: flex; align-items: center; justify-content: center; }
+.gericht .foto img { max-width: 100%; max-height: 100%; object-fit: contain; filter: drop-shadow(0 10px 12px rgba(0,0,0,.6)); }
+.gericht .foto img.kr { width: 42px; opacity: .22; filter: none; }
+.gericht .txt { flex: 1; min-width: 0; }
+.gericht .name { font-size: 16.5px; font-weight: 700; line-height: 1.2; }
+.gericht .besch { color: var(--grau); font-size: 12.5px; line-height: 1.35; margin-top: 3px; }
+.gericht .preis { font-weight: 800; font-size: 16px; margin-top: 6px; }
+.marke { display: inline-block; background: var(--gelb); color: #000; font-size: 9.5px; font-weight: 800; letter-spacing: 1px; padding: 3px 7px; border-radius: 999px; vertical-align: 2px; margin-left: 6px; }
+.fuss { color: #77746c; font-size: 12px; line-height: 1.6; text-align: center; padding: 34px 24px 0; }
+
+/* Leiste unten */
+nav.unten { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 8; width: min(calc(100% - 28px), 492px);
+            border-radius: 28px; display: flex; align-items: center; justify-content: space-around; padding: 8px 10px; background: rgba(22,22,22,.82); }
+nav.unten button { display: flex; flex-direction: column; align-items: center; gap: 3px; font-size: 11px; font-weight: 700; color: var(--grau); width: 78px; padding: 6px 0; }
+nav.unten svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+nav.unten .korb { position: relative; width: auto; flex-direction: row; gap: 10px; background: var(--gelb); color: #000; border-radius: 22px; padding: 14px 20px; font-size: 15px; font-weight: 800; box-shadow: 0 8px 22px rgba(245,197,24,.4); }
+nav.unten .korb i { font-style: normal; background: #000; color: var(--gelb); min-width: 24px; height: 24px; line-height: 24px; border-radius: 999px; font-size: 13px; text-align: center; padding: 0 6px; }
+
+/* Blatt */
+#schleier { position: fixed; inset: 0; background: rgba(0,0,0,.62); z-index: 10; backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); }
+.blatt { position: fixed; left: 0; right: 0; bottom: 0; z-index: 11; max-width: 520px; margin: 0 auto; max-height: 93vh; overflow-y: auto;
+         background: linear-gradient(180deg, #1b1a16, #0c0c0c 240px); border-radius: 32px 32px 0 0; border-top: 1px solid rgba(245,197,24,.3); padding: 22px 18px 0; }
+.blatt .zu { position: absolute; right: 14px; top: 14px; width: 44px; height: 44px; border-radius: 50%; font-size: 19px; z-index: 2; }
+.blatt h2 { font-size: 40px; line-height: .95; padding-right: 50px; }
+.blatt .unter { color: var(--grau); font-size: 14px; margin-top: 6px; line-height: 1.4; }
+.blatt .gbild { display: block; width: 78%; max-height: 230px; object-fit: contain; margin: 0 auto 10px; filter: drop-shadow(0 22px 26px rgba(0,0,0,.6)) drop-shadow(0 0 60px rgba(245,197,24,.18)); }
+.gruppe { margin-top: 22px; }
+.gruppe h3 { font-size: 16px; font-weight: 700; }
+.gruppe h3 small { color: var(--grau); font-weight: 600; font-size: 12.5px; margin-left: 6px; }
+.opts { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 10px; }
+.opts button { border-radius: 16px; padding: 13px 16px; font-size: 15px; font-weight: 700; line-height: 1.2; min-height: 50px; flex: 1 1 calc(33% - 9px); background: var(--glas); border: 1px solid var(--rand); }
+.opts button small { display: block; color: var(--grau); font-weight: 600; font-size: 12px; margin-top: 2px; }
+.opts button.an { background: var(--gelb); border-color: var(--gelb); color: #000; box-shadow: 0 6px 18px rgba(245,197,24,.28); }
+.opts button.an small { color: #3a2f00; }
+.haft { position: sticky; bottom: 0; display: flex; gap: 10px; box-sizing: border-box; width: calc(100% + 36px); align-items: center; margin: 24px -18px 0; padding: 14px 18px calc(16px + env(safe-area-inset-bottom)); background: linear-gradient(transparent, #0c0c0c 30%); }
+.menge { display: flex; align-items: center; gap: 4px; border-radius: 20px; padding: 6px; }
+.menge button { width: 42px; height: 42px; border-radius: 14px; font-size: 24px; font-weight: 700; }
+.menge b { font-size: 18px; min-width: 26px; text-align: center; }
+.gross { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--gelb); color: #000; border-radius: 20px; padding: 17px 20px; font-size: 16.5px; font-weight: 800; box-shadow: 0 8px 22px rgba(245,197,24,.35); }
+.gross[disabled] { background: #333; color: #888; box-shadow: none; }
+.gross.mitte { justify-content: center; width: 100%; }
+.gross.wa { background: #25D366; box-shadow: 0 8px 22px rgba(37,211,102,.3); }
+.posten { display: flex; align-items: center; gap: 8px; padding: 13px 0; border-bottom: 1px solid var(--rand); }
+.posten .txt { flex: 1; min-width: 0; }
+.posten .name { font-weight: 700; font-size: 15.5px; }
+.posten .besch { color: var(--grau); font-size: 12.5px; margin-top: 3px; line-height: 1.35; }
+.posten .pm { width: 36px; height: 36px; border-radius: 12px; font-size: 20px; font-weight: 700; }
+.posten .anz { min-width: 20px; text-align: center; font-weight: 800; }
+.posten .pr { min-width: 64px; text-align: right; font-weight: 800; }
+.summe { display: flex; justify-content: space-between; padding: 10px 0 0; color: var(--grau); font-size: 14.5px; }
+.summe.ges { color: #fff; font-size: 22px; font-weight: 800; padding: 12px 0 0; }
+.hinweis { background: rgba(245,197,24,.12); border: 1px solid rgba(245,197,24,.35); color: var(--gelb2); border-radius: 16px; padding: 12px 14px; font-size: 14px; font-weight: 600; margin: 14px 0 0; line-height: 1.4; }
+label { display: block; font-weight: 700; font-size: 15px; margin: 18px 0 8px; }
+input, textarea { width: 100%; background: var(--glas); border: 1px solid var(--rand); border-radius: 16px; padding: 15px 14px; color: #fff; font: inherit; font-size: 16px; }
+input:focus, textarea:focus { outline: none; border-color: var(--gelb); }
+input::placeholder, textarea::placeholder { color: #77746c; }
+.fehler { border-color: #ff5a5f !important; }
+.info p { margin-top: 14px; line-height: 1.6; font-size: 15px; } .info b { font-weight: 700; }
+#fertig { text-align: center; padding: 30px 22px 0; }
+#fertig .ok { width: 104px; height: 104px; border-radius: 50%; background: var(--gelb); color: #000; font-size: 58px; line-height: 104px; margin: 26px auto 20px; font-weight: 800; box-shadow: 0 0 70px rgba(245,197,24,.45); }
+#fertig h1 { font-size: 52px; line-height: .95; }
+#fertig .box { border-radius: 22px; padding: 16px; text-align: left; margin: 22px 0 16px; font-size: 14.5px; line-height: 1.6; white-space: pre-wrap; }
+#fertig .gross { margin-top: 10px; }
+.demo { color: var(--grau); font-size: 12.5px; line-height: 1.5; margin-top: 16px; }
+</style>
+</head>
+<body>
+
+<div id="start">
+  <div class="logo"><button onclick="zeigePhilo()" aria-label="Über uns"><img src="img/krone.svg" alt=""></button><h1 class="bebas">KÖNIGS GRILL 2</h1><span>MÜNSTER · DÖNER &amp; PIZZA</span></div>
+  <div class="wahlzeile"><div class="schalter glas"><button id="sAb" class="an" onclick="setzeArt('abholen')">Abholen</button><button id="sLi" onclick="setzeArt('liefern')">Liefern</button></div><small id="artText"></small></div>
+  <button class="hero" onclick="zuKat('spar')">
+    <span class="eti">SPARMENÜS</span>
+    <h2 class="bebas">ALLES DRIN.<br>AB 10,00 €</h2>
+    <p>Mit Pommes, Getränk und Ketchup oder Mayo.</p>
+    <span class="knopf">Jetzt bestellen →</span>
+    <img src="img/doener.png" alt="">
+  </button>
+  <nav class="kats" id="kats"></nav>
+  <div class="zeile"><h2 class="bebas">BELIEBT</h2><span>Das bestellen die meisten</span></div>
+  <div class="reihe" id="beliebt"></div>
+  <main id="liste"></main>
+  <p class="fuss">Abbildungen sind Beispielbilder. · Kappenberger Damm 20, 48151 Münster<br>Di–Sa 11:30–22 Uhr · So &amp; Feiertag 12:30–22 Uhr · Mo geschlossen</p>
+</div>
+
+<nav class="unten glas" id="navUnten">
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24"><path d="M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Start</button>
+  <button class="korb" onclick="zeigeKorb()"><svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10.4l2-8H6.2"/><circle cx="9" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><span id="korbText">Warenkorb</span><i id="korbAnz">0</i></button>
+  <button onclick="zeigeInfo()"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg>Info</button>
+</nav>
+
+<div id="schleier" class="versteckt" onclick="zu()"></div>
+<div id="blatt" class="blatt versteckt"></div>
+<div id="fertig" class="versteckt"></div>
+
+<script>
+/* ===== Einstellungen für den Laden – hier eintragen, dann ist die App scharf ===== */
+const LADEN = {
+  whatsapp: '4915771256049',        // WhatsApp-Nummer des Ladens mit Ländervorwahl, nur Ziffern, z. B. '4915112345678'
+  paypal: '',          // PayPal.Me-Name, z. B. 'koenigsgrill2'  ->  paypal.me/koenigsgrill2
+  telefon: '0251 97205184',
+  liefer: { min: 15, gebuehr: 1.5, zeit: '16–21 Uhr' }
+};
+
+/* ===== Speisekarte (Stand: Bildschirme 11.11.2026) ===== */
+const SAUCE = { t: 'Welche Sauce?', art: 'viele', hin: 'mehrere möglich', w: ['Tzatziki', 'Cocktail', 'Kräuter', 'Scharf', 'Joppie', 'Ohne Sauce'] };
+const FLEISCH = { t: 'Welches Fleisch?', art: 'eins', w: ['Kalb', 'Hähnchen'] };
+const EXTRA = { t: 'Extras?', art: 'viele', hin: 'wenn du magst', w: [['Extra Fleisch', 1.5], ['Sucuk', 1.5], ['Hirtenkäse', .5], ['Grillgemüse', .5], ['Oliven', .5], ['Peperoni', .5]] };
+const OHNE = { t: 'Etwas weglassen?', art: 'viele', hin: 'wenn du magst', w: ['Ohne Zwiebeln', 'Ohne Tomaten', 'Ohne Kraut'] };
+const GETR = { t: 'Welches Getränk?', art: 'eins', w: ['Cola', 'Cola Zero', 'Fanta', 'Sprite', 'Mezzo Mix', 'Wasser'] };
+const GROESSE_G = { t: 'Getränk: wie groß?', art: 'eins', w: ['0,33 l', ['0,5 l', .5]] };
+const KM = { t: 'Ketchup oder Mayo?', art: 'eins', w: ['Ketchup', 'Mayo', 'Beides'] };
+const DRESS = { t: 'Welches Dressing?', art: 'eins', w: ['Kräuter', 'Cocktail', 'Essig-Öl'] };
+const D = [FLEISCH, SAUCE, EXTRA, OHNE], MENUE = [GETR, GROESSE_G, KM];
+const kg = (klein, gross) => ({ t: 'Klein oder groß?', art: 'eins', w: ['Klein', ['Groß', gross - klein]] });
+const ZUTAT = ['Schinken', 'Salami', 'Pilze', 'Zwiebeln', 'Paprika', 'Mais', 'Ananas', 'Spinat', 'Brokkoli', 'Spargel', 'Tomaten', 'Oliven', 'Peperoni', 'Knoblauch', 'Hirtenkäse', 'Mozzarella', 'Hollandaise'];
+const PREMIUM = ['Dönerfleisch', 'Hähnchen', 'Sucuk', 'Thunfisch', 'Krabben', 'Meeresfrüchte'];
+const pizzaExtra = (a, b) => [{ t: 'Extra-Zutaten?', art: 'viele', hin: `je ${eur(a)}`, w: ZUTAT.map(z => [z, a]) }, { t: 'Premium-Zutaten?', art: 'viele', hin: `je ${eur(b)}`, w: PREMIUM.map(z => [z, b]) }];
+const PB = ['g_pizza_b', 'g_pizza_a', 'g_pizza_c', 'g_pizza_d'];
+
+const KARTE = [
+ { id: 'spar', n: 'Sparmenüs', bild: 'doener', fotos: 1, hin: 'Mit Pommes, Getränk 0,33 l, Ketchup oder Mayo', g: [
+   { n: 'Menü 1 · Dönertasche', p: 14, img: 'doener', top: 1, o: [FLEISCH, SAUCE, ...MENUE] },
+   { n: 'Menü 2 · Dürüm Rolle', b: 'im hausgemachten Dürümbrot', p: 15, img: 'duerum', o: [FLEISCH, SAUCE, ...MENUE] },
+   { n: 'Menü 3 · Currywurst', p: 10, img: 'currywurst', o: MENUE },
+   { n: 'Menü 4 · Hamburger XL', b: 'Rind', p: 12.5, img: 'burger', top: 1, o: MENUE },
+   { n: 'Menü 5 · Chicken Nuggets', b: '6 Stück', p: 11.5, img: 'nuggets', o: MENUE },
+   { n: 'Menü 6 · Schnitzel', p: 15.5, img: 'schnitzel', o: [{ t: 'Welche Sauce?', art: 'eins', w: ['Jäger', 'Paprika'] }, ...MENUE] },
+   { n: 'Taxiteller', b: 'Dönerfleisch + Currywurst + Pommes, mit Tzatziki & Zwiebeln', p: 15, neu: 1, o: [FLEISCH] } ] },
+ { id: 'doener', n: 'Döner', bild: 'g_doener_t', fotos: 1, hin: 'Hausgemachtes Dönerfleisch', g: [
+   { nr: 1, n: 'Dönertasche', b: 'mit Fleisch, Salat & Sauce', p: 8, img: 'g_doener_t', top: 1, o: D },
+   { nr: 2, n: 'Gemüse Döner', b: 'mit Fleisch, Grillgemüse, Hirtenkäse, Salat & Sauce', p: 9, img: 'g_doener_t', top: 1, o: D },
+   { nr: 3, n: 'Dürüm Rolle', b: 'mit Fleisch, Salat & Sauce', p: 9, img: 'g_duerum1', o: D },
+   { nr: 4, n: 'Dönerteller', b: 'mit Fleisch, Salat, Pommes & Sauce', p: 13, img: 'g_teller', o: D },
+   { nr: 5, n: 'Portion Fleisch', b: 'mit Zwiebeln & Sauce', p: 10, img: 'g_fleisch', satt: 1, o: [FLEISCH, SAUCE] },
+   { nr: 6, n: 'Pomm Döner', b: 'mit Sauce nach Wahl', p: 8, img: 'g_pommdoener', o: [FLEISCH, SAUCE] },
+   { nr: 7, n: 'Döner Auflauf', b: 'Peperoni, Zwiebeln, Tomatensauce, Tzatziki, mit Käse überbacken', p: 12.5, img: 'g_auflauf', o: [FLEISCH] },
+   { nr: 8, n: 'Döner Auflauf Spezial', b: 'Zwiebeln, Hollandaise, Tomatensauce, mit Käse überbacken', p: 12.5, img: 'g_auflauf', top: 1, o: [FLEISCH] } ] },
+ { id: 'lahm', n: 'Lahmacun', bild: 'g_lahm', fotos: 1, g: [
+   { nr: 9, n: 'Lahmacun Salat', b: 'mit Hackfleisch & Salat', p: 8.5, img: 'g_lahm', o: [SAUCE] },
+   { nr: 10, n: 'Lahmacun Döner', b: 'mit Hackfleisch, Salat & Dönerfleisch', p: 10, img: 'g_lahmd', top: 1, o: [FLEISCH, SAUCE] } ] },
+ { id: 'pizza', n: 'Pizza', bild: 'g_pizza_b', hin: 'Ø 30 cm · Tomatensauce & Gouda', g: [
+   [31, 'Margherita', '', 8], [32, 'Schinken', '', 9, 0, 'g_pizza_schinken'], [33, 'Salami', '', 9, 0, 'g_pizza_salami'], [34, 'Funghi', 'mit frischen Pilzen', 9],
+   [35, 'Sucuk', 'mit Knoblauchwurst', 10], [36, 'Tonno', 'mit Thunfisch', 10], [37, 'Mozzarella', 'mit frischen Tomaten', 10],
+   [38, 'Hawaii', 'mit Schinken & Ananas', 10], [39, 'Spinat', 'mit Hirtenkäse & Knoblauch', 10], [40, 'Brokkoli', 'mit Sauce Hollandaise', 10, 1],
+   [41, 'Münster', 'mit Schinken, Spargel & Hollandaise', 11], [42, 'Quattro Stagioni', 'mit Schinken, Salami, Thunfisch & Pilzen', 13],
+   [43, 'Frutti di Mare', 'mit Meeresfrüchten & Knoblauch', 10], [44, 'Krabben', 'mit Knoblauch', 10],
+   [45, 'Vegetarisch', 'mit Paprika, Pilzen, Zwiebeln & Mais', 12], [46, 'Diavolo', 'mit Salami, Peperoni, Zwiebeln & Oliven', 12],
+   [47, 'Dönerpizza', 'mit Dönerfleisch & Zwiebeln', 11], [48, 'Dönerpizza Spezial', 'mit Dönerfleisch, Mais & Hollandaise', 12],
+   [49, 'Königspizza', 'Thunfisch, Pilze, Zwiebeln & Hollandaise', 13], [50, 'Anatoli', 'mit Dönerfleisch, Brokkoli & Hollandaise', 12, 1],
+   [51, 'Calzone', 'mit Salami, Schinken, Zwiebeln & Pilzen', 12], [52, 'Döner Calzone', 'mit Dönerfleisch, Zwiebeln & Hirtenkäse', 12],
+   [53, 'Rabia', 'mit Hähnchenbrust, Brokkoli & Hollandaise', 12, 1]
+  ].map(([nr, n, b, p, top]) => ({ nr, n, b, p, top, o: pizzaExtra(1, 2) })).concat([{ n: 'Familienpizza Ø 45 cm', b: 'Margherita für die ganze Familie', p: 18, o: pizzaExtra(2, 3) }]) },
+ { id: 'broet', n: 'Brötchen', lang: 'Pizzabrötchen', bild: 'g_broet', hin: '8 Stück', g: [
+   { nr: 54, n: 'Pizzabrötchen', b: 'mit Kräutercreme', p: 5.5, img: 'g_broet' },
+   { nr: 55, n: 'Gefüllte Pizzabrötchen', b: 'mit Füllung nach Wahl', p: 7.5, img: 'g_broet', o: [{ t: 'Womit gefüllt?', art: 'eins', w: ['Schinken', 'Salami', 'Dönerfleisch', 'Thunfisch', 'Spinat', 'Sucuk'] }] } ] },
+ { id: 'burger', n: 'Burger', bild: 'g_hamb', hin: 'Mit Salat, Sauce & Röstzwiebeln', g: [
+   { nr: 17, n: 'Crispy Chicken Burger', p: 6.5, img: 'g_chick' }, { nr: 18, n: 'Hamburger XL', p: 6.5, img: 'g_hamb' },
+   { nr: 19, n: 'Hamburger XXL Spezial', b: 'mit doppeltem Patty', p: 8, img: 'g_xxl' }, { nr: 20, n: 'Cheeseburger XL', p: 7, img: 'g_cheese' },
+   { nr: 21, n: 'Cheeseburger XXL Spezial', b: 'mit doppeltem Patty', p: 8.5, img: 'g_xxl' } ] },
+ { id: 'schn', n: 'Schnitzel', bild: 'g_schnitzel1', hin: 'Hausgemacht · ohne Beilage', g: [
+   { nr: 22, n: 'Schnitzel Wiener Art', p: 8.5, img: 'g_schnitzel1' }, { nr: 23, n: 'Jägerschnitzel', p: 9.5, img: 'g_schnitzel1' }, { nr: 24, n: 'Paprikaschnitzel', p: 9.5, img: 'g_schnitzel1' },
+   { nr: 25, n: 'Schlemmerschnitzel', b: 'mit Pilzen & Sauce Hollandaise', p: 10.5, img: 'g_schnitzel1' } ] },
+ { id: 'imbiss', n: 'Imbiss', bild: 'g_pommes', g: [
+   { nr: 11, n: 'Pommes', p: 4, ab: 1, img: 'g_pommes', o: [kg(4, 5)] },
+   { nr: 12, n: 'Pommes Spezial', b: 'mit Curryketchup, Joppiesauce & Röstzwiebeln', p: 5.5, ab: 1, img: 'g_pommes_spez', o: [kg(5.5, 6.5)] },
+   { nr: 13, n: 'Bratwurst', p: 3.5 }, { nr: 14, n: 'Currywurst', p: 4, img: 'g_cwurst' },
+   { nr: 15, n: 'Chicken Nuggets', b: '6 Stück', p: 5.5, img: 'g_nuggets1' }, { nr: 16, n: 'Chicken Wings', b: '6 Stück', p: 6.5, img: 'g_wings' } ] },
+ { id: 'veg', n: 'Veggie', lang: 'Vegetarisch', bild: 'g_salat2', hin: 'Alle mit Salat & Sauce', g: [
+   { nr: 26, n: 'Salattasche', b: 'mit Hirtenkäse', p: 6, o: [SAUCE] }, { nr: 27, n: 'Salat Rolle', b: 'mit Hirtenkäse', p: 6.5, o: [SAUCE] },
+   { nr: 28, n: 'Falafeltasche', p: 8, o: [SAUCE] }, { nr: 29, n: 'Falafel Rolle', p: 9, o: [SAUCE] },
+   { nr: 30, n: 'Falafelteller', b: 'mit Pommes & Salat', p: 13, o: [SAUCE] } ] },
+ { id: 'salat', n: 'Salate', bild: 'g_salat', hin: 'Mit Paprika und Dressing nach Wahl', g: [
+   { nr: 56, n: 'Gemischter Salat', b: 'Eisberg, Tomaten, Gurken & Krautsalat', p: 8, img: 'g_salat', o: [DRESS] },
+   { nr: 57, n: 'Bauernsalat', b: 'mit Hirtenkäse, Peperoni & Oliven', p: 9.5, img: 'g_salat', o: [DRESS] },
+   { nr: 58, n: 'Hawaii-Salat', b: 'mit Gouda, Schinken & Ananas', p: 9.5, img: 'g_salat2', o: [DRESS] },
+   { nr: 59, n: 'Capricciosa Salat', b: 'mit Thunfisch, Gouda & Ei', p: 11, img: 'g_salat2', top: 1, o: [DRESS] },
+   { nr: 60, n: 'Chicken- / Döner-Salat', b: 'mit Hähnchenbrust oder Dönerfleisch', p: 11, img: 'g_dsalat', o: [{ t: 'Womit?', art: 'eins', w: ['Hähnchenbrust', 'Dönerfleisch'] }, DRESS] },
+   { nr: 61, n: 'Portion Krautsalat', b: 'hausgemacht', p: 5 } ] },
+ { id: 'sauce', n: 'Saucen', bild: 'g_saucen', g: [
+   { n: 'Portion Sauce', b: 'hausgemacht', p: 1.5, img: 'g_saucen', o: [{ t: 'Welche Sauce?', art: 'eins', w: ['Tzatziki', 'Cocktail', 'Kräuter', 'Scharf', 'Joppie'] }] },
+   { n: 'Ketchup, Mayo oder Curryketchup', p: .5, img: 'g_saucen', o: [{ t: 'Welche?', art: 'eins', w: ['Ketchup', 'Mayo', 'Curryketchup'] }] },
+   { n: 'Aioli, Paprika- oder Jägersauce', p: 1.5, img: 'g_saucen', o: [{ t: 'Welche?', art: 'eins', w: ['Aioli', 'Paprikasauce', 'Jägersauce'] }] } ] },
+ { id: 'trink', n: 'Getränke', bild: 'g_cola', hin: 'Bei Lieferung zzgl. Pfand', g: [
+   { n: 'Cola / Cola Zero', p: 2.5, ab: 1, img: 'g_cola', o: [{ t: 'Welche?', art: 'eins', w: ['Cola', 'Cola Zero'] }, { t: 'Wie groß?', art: 'eins', w: ['0,33 l', ['0,5 l', .5]] }] },
+   { n: 'Fanta, Sprite, Mezzo Mix', b: '0,33 l', p: 2.5, o: [{ t: 'Welche?', art: 'eins', w: ['Fanta', 'Sprite', 'Mezzo Mix'] }] },
+   { n: 'Gazoz / Vitamalz', b: '0,33 l', p: 2.5, o: [{ t: 'Welche?', art: 'eins', w: ['Gazoz', 'Vitamalz'] }] },
+   { n: 'Wasser', p: 2, ab: 1, o: [{ t: 'Wie groß?', art: 'eins', w: ['0,33 l', ['0,5 l', .5]] }] },
+   { n: 'Durstlöscher', b: '0,5 l', p: 2.5 }, { n: 'Ayran', b: '0,33 l', p: 2.5 },
+   { n: 'Bier', b: '0,5 l · ab 16 Jahren', p: 3, o: [{ t: 'Welches?', art: 'eins', w: ['Krombacher Pils', "Beck's"] }] },
+   { n: '1 Liter Getränk', p: 4, img: 'g_cola', o: [{ t: 'Welches?', art: 'eins', w: ['Cola', 'Cola Zero', 'Fanta', 'Sprite', 'Mezzo Mix'] }] } ] }
+];
+
+/* ===== Zustand ===== */
+let art = 'abholen', zahl = 'bar', korb = [], akt = null;
+const $ = s => document.querySelector(s);
+function eur(x) { return x.toFixed(2).replace('.', ',') + ' €'; }
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const wn = w => Array.isArray(w) ? w[0] : w, wp = w => Array.isArray(w) ? w[1] : 0;
+const bild = (g, f = 1) => f && g.img ? `<img ${g.satt ? 'class="satt" ' : ''}src="img/${g.img}.png" alt="">` : '<img class="kr" src="img/krone.svg" alt="">';
+const pfad = b => `img/${b.includes('.') ? b : b + '.png'}`;
+const marke = g => g.neu ? '<span class="marke">NEU</span>' : g.top ? '<span class="marke">BELIEBT</span>' : '';
+
+/* ===== Seite aufbauen ===== */
+function baue() {
+  $('#kats').innerHTML = KARTE.map(k => `<button class="glas" data-k="${k.id}" onclick="zuKat('${k.id}')"><img src="${pfad(k.bild)}" alt=""${k.bild.includes('.svg') ? ' style="width:40px;filter:none"' : ''}>${k.n}</button>`).join('');
+  const top = []; KARTE.forEach((k, ki) => k.g.forEach((g, gi) => { if (g.top && g.img && k.fotos && !top.some(t => t[2].img === g.img)) top.push([ki, gi, g]); }));
+  $('#beliebt').innerHTML = top.map(([ki, gi, g]) => `<button class="kachel glas" onclick="waehle(${ki},${gi})">${bild(g)}<div class="name">${g.n}</div><div class="unten"><span class="preis">${eur(g.p)}</span><span class="plus">+</span></div></button>`).join('');
+  $('#liste').innerHTML = KARTE.map((k, ki) => `<section class="kat" id="k-${k.id}">${k.fotos ? `<div class="zeile"><h2 class="bebas">${(k.lang || k.n).toUpperCase()}</h2>${k.hin ? `<span>${k.hin}</span>` : ''}</div>` : `<div class="banner"><h2 class="bebas">${(k.lang || k.n).toUpperCase()}</h2>${k.hin ? `<p>${k.hin}</p>` : ''}<img src="${pfad(k.bild)}" alt=""${k.bild.includes('.svg') ? ' style="width:22%;opacity:.9;filter:drop-shadow(0 0 30px rgba(245,197,24,.4))"' : ''}></div>`}` +
+    k.g.map((g, gi) => `<button class="gericht glas${k.fotos && g.img ? '' : ' ohne'}${g.neu ? ' neu' : ''}" onclick="waehle(${ki},${gi})"><div class="foto">${bild(g, !!k.fotos)}</div>
+      <div class="txt"><div class="name">${g.n}${marke(g)}</div>${g.b ? `<div class="besch">${g.b}</div>` : ''}<div class="preis">${g.ab ? 'ab ' : ''}${eur(g.p)}</div></div><span class="plus">+</span></button>`).join('') + '</section>').join('');
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) markKat(e.target.id.slice(2)); }), { rootMargin: '-110px 0px -72% 0px' });
+  document.querySelectorAll('section.kat').forEach(s => io.observe(s));
+  const kats = $('#kats'); new IntersectionObserver(([e]) => kats.classList.toggle('fest', e.intersectionRatio < 1), { threshold: 1, rootMargin: '-1px 0px 0px 0px' }).observe(kats);
+  setzeArt('abholen');
+}
+function markKat(id) { document.querySelectorAll('#kats button').forEach(b => { const an = b.dataset.k === id; b.classList.toggle('an', an); if (an) $('#kats').scrollTo({ left: b.offsetLeft - 140, behavior: 'smooth' }); }); }
+function zuKat(id) { $('#k-' + id).scrollIntoView({ behavior: 'smooth' }); }
+function setzeArt(a) { art = a; $('#sAb').classList.toggle('an', a === 'abholen'); $('#sLi').classList.toggle('an', a === 'liefern');
+  $('#artText').textContent = a === 'liefern' ? `Wir liefern zu dir · ${LADEN.liefer.zeit} · ab ${eur(LADEN.liefer.min)}` : 'Du holst dein Essen im Laden ab'; }
+
+function auf(html) { $('#blatt').innerHTML = '<button class="zu glas" onclick="zu()" aria-label="Schließen">✕</button>' + html; $('#blatt').classList.remove('versteckt'); $('#schleier').classList.remove('versteckt'); $('#blatt').scrollTop = 0; }
+function zu() { if (typeof SP !== 'undefined') clearTimeout(SP.lauf); $('#blatt').innerHTML = ''; $('#blatt').classList.add('versteckt'); $('#schleier').classList.add('versteckt'); }
+
+/* ===== Gericht ===== */
+function waehle(ki, gi) { const g = KARTE[ki].g[gi]; akt = { g, foto: KARTE[ki].fotos && g.img, menge: 1, wahl: (g.o || []).map(o => o.art === 'eins' ? [0] : []) }; zeigeGericht(); }
+function zeigeGericht() {
+  const { g, wahl, menge, foto } = akt;
+  auf(`${foto ? `<img class="gbild${g.satt ? ' satt' : ''}" src="img/${g.img}.png" alt="">` : ''}<h2 class="bebas">${g.n.toUpperCase()}</h2>${g.b ? `<p class="unter">${g.b}</p>` : ''}` +
+    (g.o || []).map((o, oi) => `<div class="gruppe"><h3>${o.t}${o.hin ? `<small>${o.hin}</small>` : ''}</h3><div class="opts">` +
+      o.w.map((w, wi) => `<button class="${wahl[oi].includes(wi) ? 'an' : ''}" onclick="tippe(${oi},${wi})">${wn(w)}${wp(w) ? `<small>+ ${eur(wp(w))}</small>` : ''}</button>`).join('') + '</div></div>').join('') +
+    `<div class="haft"><div class="menge glas"><button onclick="mengeAkt(-1)" aria-label="weniger">−</button><b>${menge}</b><button onclick="mengeAkt(1)" aria-label="mehr">+</button></div>
+     <button class="gross" onclick="inKorb()"><span>Hinzufügen</span><span style="white-space:nowrap">${eur(preisAkt() * menge)}</span></button></div>`);
+}
+function tippe(oi, wi) {
+  const o = akt.g.o[oi], w = akt.wahl[oi], st = $('#blatt').scrollTop;
+  if (o.art === 'eins') akt.wahl[oi] = [wi];
+  else if (w.includes(wi)) akt.wahl[oi] = w.filter(x => x !== wi);
+  else akt.wahl[oi] = wn(o.w[wi]) === 'Ohne Sauce' ? [wi] : w.filter(x => wn(o.w[x]) !== 'Ohne Sauce').concat(wi);
+  zeigeGericht(); $('#blatt').scrollTop = st;
+}
+function mengeAkt(d) { const st = $('#blatt').scrollTop; akt.menge = Math.max(1, akt.menge + d); zeigeGericht(); $('#blatt').scrollTop = st; }
+function preisAkt() { return akt.g.p + (akt.g.o || []).reduce((s, o, oi) => s + akt.wahl[oi].reduce((t, wi) => t + wp(o.w[wi]), 0), 0); }
+function inKorb() {
+  const txt = (akt.g.o || []).map((o, oi) => akt.wahl[oi].map(wi => wn(o.w[wi])).join(', ')).filter(Boolean).join(' · ');
+  const gleich = korb.find(p => p.n === akt.g.n && p.txt === txt);
+  if (gleich) gleich.menge += akt.menge; else korb.push({ n: akt.g.n, txt, p: preisAkt(), menge: akt.menge });
+  zu(); zeigeLeiste();
+}
+
+/* ===== Warenkorb ===== */
+const anzahl = () => korb.reduce((s, p) => s + p.menge, 0), zwSumme = () => korb.reduce((s, p) => s + p.p * p.menge, 0);
+const gesamt = () => zwSumme() + (art === 'liefern' ? LADEN.liefer.gebuehr : 0);
+function zeigeLeiste() { const n = anzahl(); $('#korbAnz').textContent = n; $('#korbText').textContent = n ? eur(zwSumme()) : 'Warenkorb'; }
+function zeigeKorb() {
+  if (!korb.length) return auf(`<h2 class="bebas">DEIN WARENKORB</h2><p class="unter">Noch leer. Tippe bei einem Gericht auf das gelbe Plus.</p><div class="haft"><button class="gross mitte" onclick="zu()">Zur Karte</button></div>`);
+  const fehlt = art === 'liefern' ? LADEN.liefer.min - zwSumme() : 0;
+  auf(`<h2 class="bebas">DEIN WARENKORB</h2><p class="unter">${art === 'liefern' ? 'Wir liefern zu dir' : 'Du holst im Laden ab'}</p>` +
+    korb.map((p, i) => `<div class="posten"><div class="txt"><div class="name">${p.n}</div>${p.txt ? `<div class="besch">${p.txt}</div>` : ''}</div>
+      <button class="pm glas" onclick="aendere(${i},-1)" aria-label="weniger">−</button><span class="anz">${p.menge}</span><button class="pm glas" onclick="aendere(${i},1)" aria-label="mehr">+</button>
+      <span class="pr">${eur(p.p * p.menge)}</span></div>`).join('') +
+    (art === 'liefern' ? `<div class="summe"><span>Essen</span><span>${eur(zwSumme())}</span></div><div class="summe"><span>Lieferung</span><span>${eur(LADEN.liefer.gebuehr)}</span></div>` : '') +
+    `<div class="summe ges"><span>Zusammen</span><span>${eur(gesamt())}</span></div>` +
+    (fehlt > 0 ? `<div class="hinweis">Für die Lieferung fehlen noch ${eur(fehlt)}. Wir liefern ab ${eur(LADEN.liefer.min)}.</div>` : '') +
+    `<div class="haft"><button class="gross" ${fehlt > 0 ? 'disabled' : ''} onclick="zeigeKasse()"><span>Weiter zur Kasse</span><span>→</span></button></div>`);
+}
+function aendere(i, d) { korb[i].menge += d; if (korb[i].menge < 1) korb.splice(i, 1); zeigeLeiste(); zeigeKorb(); }
+
+/* ===== Kasse ===== */
+function zeigeKasse() {
+  const wo = art === 'liefern' ? 'bei der Lieferung' : 'im Laden';
+  auf(`<h2 class="bebas">FAST FERTIG!</h2><p class="unter">Nur noch kurz sagen, wer du bist.</p>
+    <label for="fName">Dein Name</label><input id="fName" autocomplete="name" placeholder="z. B. Lara">
+    <label for="fTel">Deine Telefonnummer</label><input id="fTel" type="tel" inputmode="tel" autocomplete="tel" placeholder="falls wir etwas fragen müssen">
+    ${art === 'liefern' ? `<label for="fAdr">Deine Adresse</label><input id="fAdr" autocomplete="street-address" placeholder="Straße, Hausnummer, Ort">` : ''}
+    <div class="gruppe"><h3>Wann?</h3><div class="opts" id="wann"><button class="an" onclick="wann(0)">So schnell wie möglich</button><button onclick="wann(1)">Später<small>Uhrzeit wählen</small></button></div>
+    <input id="fZeit" type="time" class="versteckt" style="margin-top:10px"></div>
+    <div class="gruppe"><h3>Wie bezahlst du?</h3><div class="opts" id="zahl"><button class="${zahl === 'bar' ? 'an' : ''}" onclick="setzeZahl('bar')">Bar<small>${wo}</small></button><button class="${zahl === 'paypal' ? 'an' : ''}" onclick="setzeZahl('paypal')">PayPal<small>jetzt online</small></button></div></div>
+    <label for="fNotiz">Noch ein Wunsch? <span style="color:var(--grau);font-weight:600">(freiwillig)</span></label><textarea id="fNotiz" rows="2" placeholder="z. B. bitte klingeln"></textarea>
+    <div class="haft"><button class="gross wa mitte" onclick="bestelle()">Per WhatsApp bestellen · ${eur(gesamt())}</button></div>`);
+}
+function wann(i) { document.querySelectorAll('#wann button').forEach((b, bi) => b.classList.toggle('an', bi === i)); $('#fZeit').classList.toggle('versteckt', !i); }
+function setzeZahl(z) { zahl = z; document.querySelectorAll('#zahl button').forEach((b, bi) => b.classList.toggle('an', (bi === 0) === (z === 'bar'))); }
+function bestelle() {
+  let ok = true;
+  for (const id of ['#fName', '#fTel', '#fAdr']) { const f = $(id); if (!f) continue; const leer = !f.value.trim(); f.classList.toggle('fehler', leer); if (leer && ok) { f.focus(); ok = false; } }
+  if (!ok) return;
+  const nr = 'KG-' + Math.floor(1000 + Math.random() * 9000), spaet = !$('#fZeit').classList.contains('versteckt') && $('#fZeit').value;
+  const name = $('#fName').value.trim(), tel = $('#fTel').value.trim(), adr = $('#fAdr') ? $('#fAdr').value.trim() : '', notiz = $('#fNotiz').value.trim();
+  const text = [`*Neue Bestellung ${nr}*`, art === 'liefern' ? `LIEFERUNG an: ${adr}` : 'ABHOLUNG im Laden', `Name: ${name}`, `Telefon: ${tel}`, `Wann: ${spaet ? spaet + ' Uhr' : 'so schnell wie möglich'}`, '',
+    ...korb.map(p => `${p.menge}x ${p.n}${p.txt ? ` (${p.txt})` : ''} – ${eur(p.p * p.menge)}`),
+    ...(art === 'liefern' ? [`Lieferung – ${eur(LADEN.liefer.gebuehr)}`] : []), '', `*Zusammen: ${eur(gesamt())}*`,
+    `Bezahlung: ${zahl === 'paypal' ? 'PayPal (online)' : 'bar ' + (art === 'liefern' ? 'bei Lieferung' : 'im Laden')}`, ...(notiz ? [`Wunsch: ${notiz}`] : [])].join('\n');
+  const waLink = LADEN.whatsapp ? `https://wa.me/${LADEN.whatsapp}?text=${encodeURIComponent(text)}` : '';
+  const ppLink = LADEN.paypal ? `https://paypal.me/${LADEN.paypal}/${gesamt().toFixed(2)}EUR` : '';
+  if (waLink) window.open(waLink, '_blank');
+  zu(); $('#start').classList.add('versteckt'); $('#navUnten').classList.add('versteckt');
+  $('#fertig').innerHTML = `<div class="ok">✓</div><h1 class="bebas">DANKE, ${esc(name).toUpperCase()}!</h1>
+    <p class="unter" style="color:var(--grau);margin-top:10px">${waLink ? 'WhatsApp öffnet sich. Tippe dort auf <b>Senden</b>, dann ist deine Bestellung bei uns.' : 'So sieht die Nachricht aus, die per WhatsApp an den Laden geht:'}</p>
+    <div class="box glas">${esc(text)}</div>
+    ${waLink ? `<a class="gross wa mitte" style="text-decoration:none" href="${waLink}" target="_blank" rel="noopener">WhatsApp noch einmal öffnen</a>` : ''}
+    ${zahl === 'paypal' ? (ppLink ? `<a class="gross mitte" style="text-decoration:none" href="${ppLink}" target="_blank" rel="noopener">Jetzt ${eur(gesamt())} mit PayPal bezahlen</a>` : `<button class="gross mitte" disabled>PayPal: noch nicht eingerichtet</button>`) : ''}
+    <button class="gross mitte glas" style="background:var(--glas);color:#fff;box-shadow:none" onclick="neu()">Neue Bestellung</button>
+    ${waLink ? '' : '<p class="demo">Prototyp: Die WhatsApp-Nummer des Ladens ist noch nicht eingetragen.<br>Die Bestellung wurde <b>nicht</b> verschickt.</p>'}`;
+  $('#fertig').classList.remove('versteckt'); window.scrollTo(0, 0);
+}
+function neu() { korb = []; zeigeLeiste(); $('#fertig').classList.add('versteckt'); $('#start').classList.remove('versteckt'); $('#navUnten').classList.remove('versteckt'); window.scrollTo(0, 0); }
+function zeigeInfo() {
+  auf(`<h2 class="bebas">KÖNIGS GRILL 2</h2><div class="info"><p><b>Adresse</b><br>Kappenberger Damm 20, 48151 Münster</p>
+    <p><b>Öffnungszeiten</b><br>Di–Sa 11:30–22:00 Uhr<br>So &amp; Feiertag 12:30–22:00 Uhr<br>Montag geschlossen</p>
+    <p><b>Lieferung</b><br>${LADEN.liefer.zeit} · ab ${eur(LADEN.liefer.min)} · + ${eur(LADEN.liefer.gebuehr)}</p>
+    <p><b>Telefon</b><br><a href="tel:${LADEN.telefon.replace(/\s/g, '')}" style="color:var(--gelb)">${LADEN.telefon}</a></p>
+    <p style="color:var(--grau);font-size:13px">Allergene und Zusatzstoffe: Bitte frag uns im Laden oder am Telefon.</p></div><div class="haft"></div>`);
+}
+/* Unternehmensphilosophie – Text ist ein ENTWURF, bitte durch den eigenen ersetzen */
+const PHILO = [
+  ['Familie', 'Königs Grill 2 ist ein Familienbetrieb. Wer bei uns bestellt, wird von uns selbst bedient.'],
+  ['Hausgemacht', 'Unser Dönerfleisch stecken wir selbst. Auch unsere Saucen machen wir selbst.'],
+  ['Ehrlich', 'Frische Zutaten, faire Preise und Portionen, die satt machen.']
+];
+function zeigePhilo() {
+  auf(`<img src="img/krone.svg" alt="" style="display:block;width:84px;margin:6px auto 16px;filter:drop-shadow(0 0 34px rgba(245,197,24,.4))"><h2 class="bebas" style="text-align:center;padding:0">DAFÜR STEHEN WIR</h2><div class="info">` +
+    PHILO.map(([t, s]) => `<p><b class="gelb" style="font-size:12px;letter-spacing:3px">${t.toUpperCase()}</b><br>${s}</p>`).join('') + `</div><button class="gross mitte glas" style="background:var(--glas);color:#fff;box-shadow:none;margin-top:22px;width:100%" onclick="zeigeSpiel()">Dönerjagd spielen</button><div class="haft"><button class="gross mitte" onclick="zu()">Zur Karte</button></div>`);
+}
+
+/* ===== Spiel: Dönerjagd ===== */
+const SP = { sp: 11, ze: 13, lauf: null, bilder: {} };
+['g_doener_t.png', 'krone.svg'].forEach(n => { const i = new Image(); i.src = 'img/' + n; SP.bilder[n] = i; });
+function rekord(neu) { try { if (neu !== undefined) localStorage.setItem('kgRekord', neu); return +localStorage.getItem('kgRekord') || 0; } catch (e) { return SP.rek = Math.max(SP.rek || 0, neu || 0); } }
+function zeigeSpiel() {
+  auf(`<h2 class="bebas">DÖNERJAGD</h2><p class="unter">Der König hat Hunger! Wische über das Feld oder tippe auf die Pfeile und schnapp dir die Döner.</p>
+    <div class="spkopf"><span>Döner <b id="spPunkte">0</b></span><span>Rekord <b id="spRekord">${rekord()}</b></span></div>
+    <canvas id="spFeld"></canvas>
+    <div class="pfeile"><button onclick="lenke(0,-1)" aria-label="hoch">▲</button><div><button onclick="lenke(-1,0)" aria-label="links">◀</button><button onclick="lenke(1,0)" aria-label="rechts">▶</button></div><button onclick="lenke(0,1)" aria-label="runter">▼</button></div>
+    <div class="haft"><button class="gross mitte" id="spStart" onclick="starteSpiel()">Los geht's</button></div>`);
+  const c = $('#spFeld'), b = Math.min(c.parentElement.clientWidth - 36, 420), z = Math.floor(b / SP.sp), dpr = window.devicePixelRatio || 1;
+  SP.z = z; c.style.width = z * SP.sp + 'px'; c.style.height = z * SP.ze + 'px'; c.width = z * SP.sp * dpr; c.height = z * SP.ze * dpr;
+  SP.ctx = c.getContext('2d'); SP.ctx.scale(dpr, dpr);
+  let t0 = null;
+  c.addEventListener('touchstart', e => { t0 = e.touches[0]; }, { passive: true });
+  c.addEventListener('touchmove', e => e.preventDefault(), { passive: false });
+  c.addEventListener('touchend', e => { if (!t0) return; const t = e.changedTouches[0], dx = t.clientX - t0.clientX, dy = t.clientY - t0.clientY; if (Math.max(Math.abs(dx), Math.abs(dy)) > 14) Math.abs(dx) > Math.abs(dy) ? lenke(Math.sign(dx), 0) : lenke(0, Math.sign(dy)); t0 = null; });
+  SP.koenig = [{ x: 5, y: 6 }]; SP.r = { x: 1, y: 0 }; SP.doener = { x: 8, y: 6 }; SP.punkte = 0; SP.aus = false; male();
+}
+function neuerDoener() { do { SP.doener = { x: Math.floor(Math.random() * SP.sp), y: Math.floor(Math.random() * SP.ze) }; } while (SP.koenig.some(k => k.x === SP.doener.x && k.y === SP.doener.y)); }
+function starteSpiel() {
+  clearTimeout(SP.lauf); SP.koenig = [{ x: 5, y: 6 }, { x: 4, y: 6 }, { x: 3, y: 6 }]; SP.r = { x: 1, y: 0 }; SP.naechste = []; SP.punkte = 0; SP.aus = false; neuerDoener();
+  $('#spPunkte').textContent = 0; $('#spStart').classList.add('versteckt'); schritt();
+}
+function lenke(x, y) { if (!SP.naechste) return; const l = SP.naechste.length ? SP.naechste[SP.naechste.length - 1] : SP.r; if (l.x === -x && l.y === -y || l.x === x && l.y === y) return; if (SP.naechste.length < 2) SP.naechste.push({ x, y }); }
+function schritt() {
+  if (!$('#spFeld')) return;
+  if (SP.naechste.length) SP.r = SP.naechste.shift();
+  const k = SP.koenig[0], n = { x: (k.x + SP.r.x + SP.sp) % SP.sp, y: (k.y + SP.r.y + SP.ze) % SP.ze };
+  if (SP.koenig.slice(0, -1).some(s => s.x === n.x && s.y === n.y)) return ende();
+  SP.koenig.unshift(n);
+  if (n.x === SP.doener.x && n.y === SP.doener.y) { SP.punkte++; $('#spPunkte').textContent = SP.punkte; neuerDoener(); } else SP.koenig.pop();
+  male(); SP.lauf = setTimeout(schritt, Math.max(95, 230 - SP.punkte * 7));
+}
+function ende() {
+  SP.aus = true; SP.naechste = null; male(); const neu = SP.punkte > rekord(); if (neu) rekord(SP.punkte); $('#spRekord').textContent = rekord();
+  const b = $('#spStart'); b.textContent = (neu ? 'Neuer Rekord: ' : '') + SP.punkte + ' Döner · Nochmal'; b.classList.remove('versteckt');
+}
+function male() {
+  const c = SP.ctx, z = SP.z, B = z * SP.sp, H = z * SP.ze; c.clearRect(0, 0, B, H);
+  c.fillStyle = 'rgba(255,255,255,.07)'; for (let x = 0; x < SP.sp; x++) for (let y = 0; y < SP.ze; y++) { c.beginPath(); c.arc(x * z + z / 2, y * z + z / 2, 1.2, 0, 7); c.fill(); }
+  const d = SP.bilder['g_doener_t.png'], g = z * 1.5; if (d.complete && d.naturalWidth) c.drawImage(d, SP.doener.x * z + z / 2 - g / 2, SP.doener.y * z + z / 2 - g * d.naturalHeight / d.naturalWidth / 2, g, g * d.naturalHeight / d.naturalWidth);
+  SP.koenig.forEach((s, i) => { if (!i) return; c.fillStyle = `rgba(245,197,24,${Math.max(.35, 1 - i * .06)})`; c.beginPath(); c.arc(s.x * z + z / 2, s.y * z + z / 2, z * .36, 0, 7); c.fill(); });
+  const k = SP.koenig[0], kx = k.x * z + z / 2, ky = k.y * z + z / 2; c.fillStyle = SP.aus ? '#ff5a5f' : '#F5C518'; c.beginPath(); c.arc(kx, ky, z * .56, 0, 7); c.fill();
+  c.fillStyle = '#000'; c.beginPath(); c.arc(kx, ky, z * .44, 0, 7); c.fill();
+  const kr = SP.bilder['krone.svg']; if (kr.complete && kr.naturalWidth) c.drawImage(kr, kx - z * .32, ky - z * .16, z * .64, z * .64 * 694 / 1462);
+}
+document.addEventListener('keydown', e => { const m = { ArrowUp: [0, -1], ArrowDown: [0, 1], ArrowLeft: [-1, 0], ArrowRight: [1, 0] }[e.key]; if (m && $('#spFeld')) { e.preventDefault(); lenke(...m); } });
+baue();
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+</script>
+</body>
+</html>
