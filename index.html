@@ -194,7 +194,7 @@ input::placeholder, textarea::placeholder { color: #77746c; }
   <div class="zeile"><h2 class="bebas">BELIEBT</h2><span>Das bestellen die meisten</span></div>
   <div class="reihe" id="beliebt"></div>
   <main id="liste"></main>
-  <p class="fuss">Abbildungen sind Beispielbilder. · Kappenberger Damm 20, 48151 Münster<br>Di–Sa 11:30–22 Uhr · So &amp; Feiertag 12:30–22 Uhr · Mo geschlossen</p>
+  <p class="fuss">Abbildungen sind Beispielbilder. · Kappenberger Damm 20, 48151 Münster<br>Di–Sa 11:30–22 Uhr · So &amp; Feiertag 12:30–22 Uhr · Mo geschlossen<br><button onclick="zeigeImpressum()" style="color:var(--grau);text-decoration:underline;font-size:12px">Impressum</button> · <button onclick="zeigeDatenschutz()" style="color:var(--grau);text-decoration:underline;font-size:12px">Datenschutz</button></p>
 </div>
 
 <nav class="unten glas" id="navUnten">
@@ -424,8 +424,30 @@ function zeigeInfo() {
     <p><b>Öffnungszeiten</b><br>Di–Sa 11:30–22:00 Uhr<br>So &amp; Feiertag 12:30–22:00 Uhr<br>Montag geschlossen</p>
     <p><b>Lieferung</b><br>${LADEN.liefer.zeit} · ab ${eur(LADEN.liefer.min)} · + ${eur(LADEN.liefer.gebuehr)}</p>
     <p><b>Telefon</b><br><a href="tel:${LADEN.telefon.replace(/\s/g, '')}" style="color:var(--gelb)">${LADEN.telefon}</a></p>
-    <p style="color:var(--grau);font-size:13px">Allergene und Zusatzstoffe: Bitte frag uns im Laden oder am Telefon.</p></div><div class="haft"></div>`);
+    <p style="color:var(--grau);font-size:13px">Allergene und Zusatzstoffe: Bitte frag uns im Laden oder am Telefon.</p>
+    <p style="font-size:14px"><button onclick="zeigeImpressum()" style="color:var(--gelb);text-decoration:underline">Impressum</button> · <button onclick="zeigeDatenschutz()" style="color:var(--gelb);text-decoration:underline">Datenschutz</button></p></div><div class="haft"></div>`);
 }
+/* ===== Impressum & Datenschutz (Stand 16.11.2026) ===== */
+const RECHT = '<div class="info" style="font-size:14px">';
+function zeigeImpressum() {
+  auf(`<h2 class="bebas">IMPRESSUM</h2>${RECHT}
+    <p><b>Angaben gemäß § 5 DDG</b><br>Königs Grill 2<br>Inhaber: Seyfo Can<br>Kappenberger Damm 20<br>48151 Münster (Geist)</p>
+    <p><b>Kontakt</b><br>Telefon: <a href="tel:+4925197205184" style="color:var(--gelb)">0251 97205184</a><br>E-Mail: <a href="mailto:seyfo_can@hotmail.de" style="color:var(--gelb)">seyfo_can@hotmail.de</a></p>
+    <p><b>Verbraucherstreitbeilegung</b><br>Wir sind nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+    <p><b>Bilder</b><br>Abbildungen sind Beispielbilder.</p></div><div class="haft"><button class="gross mitte" onclick="zu()">Schließen</button></div>`);
+}
+function zeigeDatenschutz() {
+  auf(`<h2 class="bebas">DATENSCHUTZ</h2>${RECHT}
+    <p><b>Verantwortlich</b><br>Königs Grill 2, Inhaber Seyfo Can, Kappenberger Damm 20, 48151 Münster · seyfo_can@hotmail.de · 0251 97205184</p>
+    <p><b>Bestellung</b><br>Wenn du bestellst, gibst du Name, Telefonnummer und bei Lieferung deine Adresse an. Diese Angaben nutzen wir nur, um deine Bestellung zuzubereiten, zu liefern und bei Rückfragen anzurufen (Art. 6 Abs. 1 lit. b DSGVO). Die Bestellung wird nicht auf dieser Website gespeichert, sondern als Nachricht in deiner WhatsApp-App geöffnet und erst gesendet, wenn du selbst auf „Senden“ tippst.</p>
+    <p><b>WhatsApp</b><br>Die Bestellung läuft über WhatsApp, einen Dienst der WhatsApp Ireland Ltd. (Meta). Dabei gelten zusätzlich die Datenschutzbestimmungen von WhatsApp. Daten können dabei auch in die USA übertragen werden.</p>
+    <p><b>PayPal</b><br>Wenn du PayPal wählst, wirst du zu PayPal (Europe) S.à r.l. et Cie, S.C.A. weitergeleitet. Dort gelten die Datenschutzbestimmungen von PayPal.</p>
+    <p><b>Hosting</b><br>Diese Website liegt bei GitHub Pages (GitHub Inc., USA). Beim Aufruf verarbeitet GitHub technisch notwendige Daten wie deine IP-Adresse, um die Seite auszuliefern und vor Missbrauch zu schützen (Art. 6 Abs. 1 lit. f DSGVO).</p>
+    <p><b>Schriften</b><br>Für die Darstellung werden Schriftarten von Google Fonts (Google Ireland Ltd.) geladen. Dabei wird deine IP-Adresse an Google übermittelt.</p>
+    <p><b>Speicher im Browser</b><br>Wir setzen keine Cookies und kein Tracking. Nur der Highscore des Spiels und eine Kopie der Seite für die Offline-Nutzung werden auf deinem Gerät gespeichert.</p>
+    <p><b>Deine Rechte</b><br>Du hast das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Außerdem kannst du dich bei einer Datenschutz-Aufsichtsbehörde beschweren, z. B. bei der LDI NRW.</p></div><div class="haft"><button class="gross mitte" onclick="zu()">Schließen</button></div>`);
+}
+
 /* Unternehmensphilosophie – Text ist ein ENTWURF, bitte durch den eigenen ersetzen */
 const PHILO = [
   ['Familie', 'Königs Grill 2 ist ein Familienbetrieb. Wer bei uns bestellt, wird von uns selbst bedient.'],
