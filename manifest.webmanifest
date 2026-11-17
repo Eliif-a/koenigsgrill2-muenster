@@ -1,16 +1,26 @@
 {
+  "id": "/",
   "name": "Königs Grill 2 Münster",
   "short_name": "Königs Grill 2",
-  "description": "Döner, Pizza, Schnitzel und Falafel bestellen bei Königs Grill 2 in Münster.",
+  "description": "Döner, Pizza, Schnitzel und Falafel bestellen bei Königs Grill 2 in Münster – abholen oder liefern lassen, Bestellung per WhatsApp.",
   "lang": "de",
-  "start_url": "./",
-  "scope": "./",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#000000",
   "theme_color": "#000000",
+  "categories": ["food", "shopping"],
   "icons": [
-    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    { "src": "img/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-1024.png", "sizes": "1024x1024", "type": "image/png", "purpose": "any" },
+    { "src": "img/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "screenshots": [
+    { "src": "img/screens/start.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Startseite mit Sparmenüs" },
+    { "src": "img/screens/gericht.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Gericht zusammenstellen" },
+    { "src": "img/screens/spiel.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Dönerjagd – das Spiel unter der Krone" }
   ]
 }
