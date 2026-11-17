@@ -46,6 +46,13 @@ nav.unten.glas { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px
 .gruss small { color: var(--grau); font-size: 14px; font-weight: 600; }
 .gruss h1 { font-size: 52px; line-height: .92; margin-top: 6px; }
 
+#start { position: relative; }
+.applade { position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; align-items: center; gap: 6px; background: var(--gelb); color: #000; font-weight: 800; font-size: 13px; padding: 9px 14px; border-radius: 999px; box-shadow: 0 0 24px rgba(245,197,24,.35); }
+.applade svg { width: 15px; height: 15px; }
+.ioshilfe { position: fixed; left: 12px; right: 12px; bottom: 18px; z-index: 60; background: var(--gelb); color: #000; border-radius: 20px; padding: 16px 18px; font-size: 16px; font-weight: 700; line-height: 1.45; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,.6); }
+.ioshilfe::after { content: ""; position: absolute; left: 50%; bottom: -10px; margin-left: -10px; border: 10px solid transparent; border-bottom: 0; border-top-color: var(--gelb); }
+.ioshilfe svg { width: 20px; height: 20px; vertical-align: -4px; }
+.ioshilfe button { position: absolute; top: 6px; right: 10px; font-size: 18px; color: #000; }
 .logo { text-align: center; padding: 30px 18px 0; }
 .logo button { display: block; margin: 0 auto; padding: 6px; border-radius: 20px; }
 .logo button:active { transform: scale(.94); }
@@ -181,6 +188,7 @@ input::placeholder, textarea::placeholder { color: #77746c; }
 <body>
 
 <div id="start">
+  <button id="appLaden" class="applade" onclick="appLaden()" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 21h14"/></svg>App laden</button>
   <div class="logo"><button onclick="zeigePhilo()" aria-label="Über uns"><img src="img/krone.svg" alt=""></button><h1 class="bebas">KÖNIGS GRILL 2</h1><span>MÜNSTER · DÖNER &amp; PIZZA</span></div>
   <div class="wahlzeile"><div class="schalter glas"><button id="sAb" class="an" onclick="setzeArt('abholen')">Abholen</button><button id="sLi" onclick="setzeArt('liefern')">Liefern</button></div><small id="artText"></small></div>
   <button class="hero" onclick="zuKat('spar')">
@@ -442,6 +450,15 @@ function zeigeApp() {
   auf(`<h2 class="bebas">ALS APP HOLEN</h2><div class="info"><p>Kostenlos, ohne App-Store. Danach findest du uns mit der Krone auf deinem Startbildschirm.</p>${schritte}</div>
     <div class="haft">${!ios && installHilfe ? `<button class="gross mitte" onclick="installiere()">Jetzt installieren</button>` : `<button class="gross mitte" onclick="zu()">Alles klar</button>`}</div>`);
 }
+const TEILEN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 12v8h14v-8"/></svg>`;
+function istIOS() { return /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); }
+async function appLaden() {
+  if (installHilfe) { installHilfe.prompt(); const w = await installHilfe.userChoice; installHilfe = null; if (w.outcome === "accepted") $("#appLaden").hidden = true; return; }
+  if (istIOS()) { const d = document.createElement("div"); d.className = "ioshilfe"; d.innerHTML = `<button onclick="this.parentNode.remove()" aria-label="Schließen">✕</button>Unten auf ${TEILEN} tippen,<br>dann <b>„Zum Home-Bildschirm“</b>`; document.body.appendChild(d); return; }
+  zeigeApp();
+}
+if (!istApp()) $("#appLaden").hidden = false;
+addEventListener("appinstalled", () => { $("#appLaden").hidden = true; });
 async function installiere() { if (!installHilfe) return; installHilfe.prompt(); await installHilfe.userChoice; installHilfe = null; zu(); }
 /* ===== Impressum & Datenschutz (Stand 16.11.2026) ===== */
 const RECHT = '<div class="info" style="font-size:14px">';
