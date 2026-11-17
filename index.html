@@ -47,16 +47,27 @@ nav.unten.glas { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px
 .gruss h1 { font-size: 52px; line-height: .92; margin-top: 6px; }
 
 #start { position: relative; }
-.applade { position: absolute; top: 14px; right: 14px; z-index: 5; display: flex; align-items: center; gap: 6px; background: var(--gelb); color: #000; font-weight: 800; font-size: 13px; padding: 9px 14px; border-radius: 999px; box-shadow: 0 0 24px rgba(245,197,24,.35); }
+.applade { position: absolute; top: calc(14px + env(safe-area-inset-top)); right: 14px; z-index: 5; display: flex; align-items: center; gap: 6px; background: var(--gelb); color: #000; font-weight: 800; font-size: 13px; padding: 9px 14px; border-radius: 999px; box-shadow: 0 0 24px rgba(245,197,24,.35); }
 .applade svg { width: 15px; height: 15px; }
+.applade[hidden] { display: none; }
 .ioshilfe { position: fixed; left: 12px; right: 12px; bottom: 18px; z-index: 60; background: var(--gelb); color: #000; border-radius: 20px; padding: 16px 18px; font-size: 16px; font-weight: 700; line-height: 1.45; text-align: center; box-shadow: 0 10px 40px rgba(0,0,0,.6); }
 .ioshilfe::after { content: ""; position: absolute; left: 50%; bottom: -10px; margin-left: -10px; border: 10px solid transparent; border-bottom: 0; border-top-color: var(--gelb); }
+.ih-titel { font-family: "Bebas Neue", sans-serif; font-size: 24px; letter-spacing: 1px; margin-bottom: 10px; }
+.ih-reihe { display: flex; align-items: flex-start; justify-content: center; gap: 4px; }
+.ih-schritt { flex: 1; max-width: 96px; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.ih-icon { width: 46px; height: 46px; border-radius: 12px; background: #fff; color: #000; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 6px rgba(0,0,0,.2); }
+.ih-icon.breit { width: auto; padding: 0 10px; }
+.ih-icon svg { width: 24px; height: 24px; }
+.ih-text { font-size: 12.5px; line-height: 1.25; font-weight: 700; }
+.ih-text b { display: inline-flex; width: 18px; height: 18px; border-radius: 50%; background: #000; color: var(--gelb); font-size: 11px; align-items: center; justify-content: center; margin-right: 2px; }
+.ih-pfeil { font-size: 26px; font-weight: 800; margin-top: 6px; opacity: .55; }
 .ioshilfe.rechts::after { left: auto; right: 22px; margin-left: 0; }
-.ioshilfe.oben { bottom: auto; top: 14px; }
+.ioshilfe.oben { bottom: auto; top: calc(14px + env(safe-area-inset-top)); }
 .ioshilfe.oben::after { bottom: auto; top: -10px; left: auto; right: 22px; margin-left: 0; border: 10px solid transparent; border-top: 0; border-bottom-color: var(--gelb); }
 .ioshilfe svg { width: 20px; height: 20px; vertical-align: -4px; }
 .ioshilfe button { position: absolute; top: 6px; right: 10px; font-size: 18px; color: #000; }
-.logo { text-align: center; padding: 30px 18px 0; }
+html::after { content: ""; position: fixed; left: 0; right: 0; top: 0; height: env(safe-area-inset-top); background: #000; z-index: 50; }
+.logo { text-align: center; padding: calc(30px + env(safe-area-inset-top)) 18px 0; }
 .logo button { display: block; margin: 0 auto; padding: 6px; border-radius: 20px; }
 .logo button:active { transform: scale(.94); }
 .logo img { width: 92px; display: block; margin: 0 auto; filter: drop-shadow(0 0 34px rgba(245,197,24,.35)); }
@@ -76,7 +87,7 @@ nav.unten.glas { backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px
 .hero img { position: absolute; right: 8px; bottom: 4px; width: 47%; filter: drop-shadow(0 18px 26px rgba(0,0,0,.55)); }
 
 /* Kategorien */
-.kats { display: flex; gap: 10px; overflow-x: auto; padding: 20px 18px 6px; scrollbar-width: none; position: sticky; top: 0; z-index: 4; }
+.kats { display: flex; gap: 10px; overflow-x: auto; padding: 20px 18px 6px; scrollbar-width: none; position: sticky; top: env(safe-area-inset-top); z-index: 4; }
 .kats::-webkit-scrollbar { display: none; }
 .kats.fest { background: rgba(6,6,6,.9); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); padding-top: 12px; padding-bottom: 12px; border-bottom: 1px solid var(--rand); }
 .kats button { flex: 0 0 auto; width: 76px; padding: 8px 4px 9px; border-radius: 20px; font-size: 11.5px; font-weight: 700; display: flex; flex-direction: column; align-items: center; gap: 2px; }
@@ -455,22 +466,33 @@ function zeigeApp() {
 }
 const TEILEN = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 12v8h14v-8"/></svg>`;
 function istIOS() { return /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1); }
-const PUNKTE = `<b style="letter-spacing:1px">•••</b>`;
+const IC = {
+  punkte: `<svg viewBox="0 0 24 24" fill="currentColor"><circle cx="5" cy="12" r="2.2"/><circle cx="12" cy="12" r="2.2"/><circle cx="19" cy="12" r="2.2"/></svg>`,
+  teilen: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 12v8h14v-8"/></svg>`,
+  home: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M12 8v8M8 12h8"/></svg>`,
+  safari: `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z" fill="currentColor"/></svg>`,
+  ok: `<span style="font-size:13px;font-weight:800;color:#0a84ff">Hinzufügen</span>`,
+  krone: `<img src="img/icon-192.png" alt="" style="width:100%;height:100%;border-radius:8px">`
+};
 function iosHilfe() {
   document.querySelectorAll(".ioshilfe").forEach(e => e.remove());
   const ua = navigator.userAgent, v = +((ua.match(/Version\/(\d+)/) || [])[1] || 0);
-  let text, lage = "";
+  let titel = "So kommt die Krone aufs Handy", s, lage = "";
   if (/FBAN|FBAV|Instagram|TikTok|Snapchat|LinkedInApp|GSA\//.test(ua)) {
-    text = `Die Seite ist gerade in einer anderen App offen.<br><b>1.</b> Auf ${PUNKTE} oder ${TEILEN} tippen<br><b>2.</b> <b>„In Safari öffnen“</b> wählen<br><b>3.</b> Dort nochmal auf „App laden“`; lage = " oben";
+    titel = "Erst in Safari öffnen"; lage = " oben";
+    s = [[IC.punkte, "Hier tippen"], [IC.safari, "„In Safari öffnen“"], [IC.krone, "Dort „App laden“"]];
   } else if (/CriOS|EdgiOS|FxiOS/.test(ua)) {
-    text = `<b>1.</b> Oben rechts auf ${TEILEN} tippen<br><b>2.</b> <b>„Zum Home-Bildschirm“</b> wählen<br><b>3.</b> <b>„Hinzufügen“</b>`; lage = " oben";
+    lage = " oben";
+    s = [[IC.teilen, "Oben rechts tippen"], [IC.home, "„Zum Home-Bildschirm“"], [IC.ok, "Fertig!", 1]];
   } else if (v >= 26) {
-    text = `<b>1.</b> Unten rechts auf ${PUNKTE} tippen<br><b>2.</b> <b>„Teilen“</b> ${TEILEN}<br><b>3.</b> Runterscrollen: <b>„Zum Home-Bildschirm“</b><br><b>4.</b> <b>„Hinzufügen“</b>`; lage = " rechts";
+    lage = " rechts";
+    s = [[IC.punkte, "Unten rechts tippen"], [IC.teilen, "„Teilen“"], [IC.home, "„Zum Home-Bildschirm“"], [IC.ok, "Fertig!", 1]];
   } else {
-    text = `<b>1.</b> Unten auf ${TEILEN} tippen<br><b>2.</b> Runterscrollen: <b>„Zum Home-Bildschirm“</b><br><b>3.</b> <b>„Hinzufügen“</b>`;
+    s = [[IC.teilen, "Unten tippen"], [IC.home, "„Zum Home-Bildschirm“"], [IC.ok, "Fertig!", 1]];
   }
   const d = document.createElement("div"); d.className = "ioshilfe" + lage;
-  d.innerHTML = `<button onclick="this.parentNode.remove()" aria-label="Schließen">✕</button><div style="text-align:left;display:inline-block">${text}</div>`;
+  d.innerHTML = `<button onclick="this.parentNode.remove()" aria-label="Schließen">✕</button><div class="ih-titel">${titel}</div>
+    <div class="ih-reihe">${s.map(([i, t, breit], n) => `<div class="ih-schritt"><div class="ih-icon${breit ? " breit" : ""}">${i}</div><div class="ih-text"><b>${n + 1}</b> ${t}</div></div>`).join('<div class="ih-pfeil">›</div>')}</div>`;
   document.body.appendChild(d);
 }
 async function appLaden() {
