@@ -21,6 +21,7 @@
   "screenshots": [
     { "src": "img/screens/start.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Startseite mit Sparmenüs" },
     { "src": "img/screens/gericht.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Gericht zusammenstellen" },
+    { "src": "img/screens/korb.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Warenkorb mit Lieferung" },
     { "src": "img/screens/spiel.png", "sizes": "1080x1920", "type": "image/png", "form_factor": "narrow", "label": "Dönerjagd – das Spiel unter der Krone" }
   ]
 }
