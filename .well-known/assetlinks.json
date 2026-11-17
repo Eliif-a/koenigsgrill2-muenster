@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "de.koenigsgrill2.muenster",
+        "sha256_cert_fingerprints": ["58:B4:72:E8:8E:CB:B6:83:AF:AB:13:82:01:18:16:D6:94:96:C4:81:34:53:AF:FF:E3:16:97:A9:BC:92:01:F4"]
+      }
+    }]
