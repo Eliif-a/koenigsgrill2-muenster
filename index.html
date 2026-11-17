@@ -80,6 +80,17 @@ html::after { content: ""; position: fixed; left: 0; right: 0; top: 0; height: e
 .wahlzeile { display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 20px 18px 0; }
 .wahlzeile .schalter button { padding: 11px 26px; font-size: 14.5px; }
 .wahlzeile small { color: var(--grau); font-size: 13px; font-weight: 600; text-align: center; }
+.frage { font-size: 15px; font-weight: 800; }
+.artwahl { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 420px; }
+.artwahl button { display: flex; flex-direction: column; align-items: center; gap: 3px; padding: 14px 10px 12px; border-radius: 20px; background: var(--glas); border: 2px solid var(--rand); color: #fff; font-weight: 800; font-size: 17px; transition: transform .1s; }
+.artwahl button svg { width: 30px; height: 30px; color: var(--gelb); }
+.artwahl button small { font-size: 12px; font-weight: 600; color: var(--grau); }
+.artwahl button.an { background: var(--gelb); border-color: var(--gelb); color: #000; box-shadow: 0 0 26px rgba(245,197,24,.35); }
+.artwahl button.an svg, .artwahl button.an small { color: #000; }
+.artwahl button:active { transform: scale(.97); }
+.artwahl.klein { margin: 12px 0 6px; max-width: none; }
+.artwahl.klein button { flex-direction: row; justify-content: center; gap: 8px; padding: 11px; font-size: 15px; }
+.artwahl.klein button svg { width: 22px; height: 22px; }
 .offen { display: flex !important; align-items: center; gap: 6px; margin-top: 2px; }
 .offen::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--punkt, #4cd964); }
 .offen.zu { --punkt: #ff453a; }
@@ -214,7 +225,7 @@ select.fehler, input.fehler { border-color: #ff453a; }
 <div id="start">
   <button id="appLaden" class="applade" onclick="appLaden()" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v12M6 11l6 6 6-6M5 21h14"/></svg>App laden</button>
   <div class="logo"><button onclick="zeigePhilo()" aria-label="Über uns"><img src="img/krone.svg" alt=""></button><h1 class="bebas">KÖNIGS GRILL 2</h1><span>MÜNSTER · DÖNER &amp; PIZZA</span></div>
-  <div class="wahlzeile"><div class="schalter glas"><button id="sAb" class="an" onclick="setzeArt('abholen')">Abholen</button><button id="sLi" onclick="setzeArt('liefern')">Liefern</button></div><small id="artText"></small><small id="offenText" class="offen"></small></div>
+  <div class="wahlzeile"><b class="frage">Wie bekommst du dein Essen?</b><div class="artwahl"><button data-art="abholen" class="an" onclick="setzeArt('abholen')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Abholen</span><small>im Laden</small></button><button data-art="liefern" onclick="setzeArt('liefern')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><path d="M8.5 17h7M15 17l-2-8h-3M13 9h3l2.5 8"/><path d="M3 12h6"/></svg><span>Liefern</span><small>16–21 Uhr</small></button></div><small id="artText"></small><small id="offenText" class="offen"></small></div>
   <button class="hero" onclick="zuKat('spar')">
     <span class="eti">SPARMENÜS</span>
     <h2 class="bebas">ALLES DRIN.<br>AB 10,00 €</h2>
@@ -392,7 +403,7 @@ function baue() {
 }
 function markKat(id) { document.querySelectorAll('#kats button').forEach(b => { const an = b.dataset.k === id; b.classList.toggle('an', an); if (an) $('#kats').scrollTo({ left: b.offsetLeft - 140, behavior: 'smooth' }); }); }
 function zuKat(id) { $('#k-' + id).scrollIntoView({ behavior: 'smooth' }); }
-function setzeArt(a) { art = a; $('#sAb').classList.toggle('an', a === 'abholen'); $('#sLi').classList.toggle('an', a === 'liefern');
+function setzeArt(a) { art = a; document.querySelectorAll('[data-art]').forEach(b => b.classList.toggle('an', b.dataset.art === a));
   $('#artText').textContent = a === 'liefern' ? `Wir liefern zu dir · ${LADEN.liefer.zeit} · ab ${eur(LADEN.liefer.min)}` : 'Du holst dein Essen im Laden ab'; zeigeOffen(); }
 
 /* ===== Öffnungszeiten, Lieferzeit, Mittagstisch ===== */
@@ -475,7 +486,7 @@ function zeigeKorb() {
   if (!korb.length) return auf(`<h2 class="bebas">DEIN WARENKORB</h2><p class="unter">Noch leer. Tippe bei einem Gericht auf das gelbe Plus.</p><div class="haft"><button class="gross mitte" onclick="zu()">Zur Karte</button></div>`);
   const fehlt = art === 'liefern' ? LADEN.liefer.min - zwSumme() : 0;
   const nurAb = art === 'liefern' && korb.some(p => p.nurAb);
-  auf(`<h2 class="bebas">DEIN WARENKORB</h2><p class="unter">${art === 'liefern' ? 'Wir liefern zu dir' : 'Du holst im Laden ab'}</p>` +
+  auf(`<h2 class="bebas">DEIN WARENKORB</h2><div class="artwahl klein"><button data-art="abholen" class="${art === 'abholen' ? 'an' : ''}" onclick="setzeArt('abholen');zeigeKorb()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span>Abholen</span></button><button data-art="liefern" class="${art === 'liefern' ? 'an' : ''}" onclick="setzeArt('liefern');zeigeKorb()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="2.5"/><circle cx="18" cy="17" r="2.5"/><path d="M8.5 17h7M15 17l-2-8h-3M13 9h3l2.5 8"/><path d="M3 12h6"/></svg><span>Liefern</span></button></div>` +
     korb.map((p, i) => `<div class="posten"><div class="txt"><div class="name">${p.n}</div>${p.txt ? `<div class="besch">${p.txt}</div>` : ''}</div>
       <button class="pm glas" onclick="aendere(${i},-1)" aria-label="weniger">−</button><span class="anz">${p.menge}</span><button class="pm glas" onclick="aendere(${i},1)" aria-label="mehr">+</button>
       <span class="pr">${eur(p.p * p.menge)}</span></div>`).join('') +
